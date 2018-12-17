@@ -12,6 +12,12 @@ def TrojkatPascala(n):
             trojkat.append(1)
         result.append(trojkat)
     return result
+
+def TrojkatRekurencja(n,k):
+    if n==0 or k==n : return 1
+    if k==1 or k==n-1 : return n
+    else : return TrojkatRekurencja(n-1,k)+TrojkatRekurencja(n-1,k-1)
+
 k=int(input("Podaj ilosc wierszy"))
 numerWierasza=0
 for x in TrojkatPascala(k) :
@@ -21,3 +27,6 @@ for x in TrojkatPascala(k) :
         print("  ",end="")
     k-=1
     print(*x,sep=" ")
+
+for x in range(k):
+    print(TrojkatRekurencja(k,x))
